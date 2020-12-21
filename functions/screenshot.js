@@ -2,17 +2,6 @@ require('dotenv').config()
 const cloudinary = require('cloudinary').v2
 const chromium = require('chrome-aws-lambda');
 
-// const bufferToString=>(){
-//     // See https://gist.github.com/candycode/f18ae1767b2b0aba568e
-
-//     var arrayBufferView = new Uint8Array( buffer );
-//     var blob = new Blob( [ arrayBufferView ], { type: "image/jpeg" } );
-//     var urlCreator = window.URL || window.webkitURL;
-//     var imageUrl = urlCreator.createObjectURL( blob );
-
-//     return imageUrl;
-// }
-
 
 exports.handler = async (event, context) => {
 
@@ -33,7 +22,7 @@ exports.handler = async (event, context) => {
 
     await browser.close();
 
-    
+    console.log("uploda to cloudinary",`screenshots/${Date.now()}`)
     cloudinary.uploader.upload(screenshot.toString('base64'), {
       public_id: `screenshots/${Date.now()}`,
       type: 'auto'
