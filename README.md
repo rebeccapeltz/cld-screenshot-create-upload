@@ -12,3 +12,11 @@ http://localhost:64319/.netlify/functions/hello
 
 
 ## netlify server
+
+```bash
+netlify deploy 
+netlify deploy --prod
+```
+
+https://custom-function.netlify.app/.netlify/functions/hello
+
