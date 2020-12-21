@@ -26,6 +26,10 @@ exports.handler = async (event, context) => {
       public_id: `screenshots\${Date.now()}`,
       type: 'public'
     })
+    .then(uploadResult => {
+      console.log(uploadResult)
+    })
+    .catch(error => console.error(error))
 
     return {
         statusCode: 200,
