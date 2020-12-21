@@ -19,4 +19,5 @@ netlify deploy --prod
 ```
 
 https://custom-function.netlify.app/.netlify/functions/hello
+https://custom-function.netlify.app/.netlify/functions/screenshot
 
