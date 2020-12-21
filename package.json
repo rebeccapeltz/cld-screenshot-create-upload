@@ -1,0 +1,26 @@
+{
+  "name": "custom-netlify-functions",
+  "version": "1.0.0",
+  "description": "https://itnext.io/how-to-build-and-deploy-serverless-functions-to-netlify-d37418f6f7be",
+  "main": "screenshot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebeccapeltz/custom-netlify-function.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rebeccapeltz/custom-netlify-function/issues"
+  },
+  "homepage": "https://github.com/rebeccapeltz/custom-netlify-function#readme",
+  "devDependencies": {
+    "puppeteer": "^5.5.0"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^5.5.0",
+    "puppeteer-core": "^5.5.0"
+  }
+}
