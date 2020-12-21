@@ -1,3 +1,5 @@
+require('dotenv').config()
+const cloudinary = require('cloudinary').v2
 const chromium = require('chrome-aws-lambda');
 
 exports.handler = async (event, context) => {
@@ -18,7 +20,13 @@ exports.handler = async (event, context) => {
     const screenshot = await page.screenshot({ encoding: 'binary' });
 
     await browser.close();
-  
+
+    
+    cloudinary.uploader.upload(screenshot, {
+      public_id: `screenshots\${Date.now()}`,
+      type: 'public'
+    })
+
     return {
         statusCode: 200,
         body: JSON.stringify({ 

@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "chrome-aws-lambda": "^5.5.0",
+    "cloudinary": "^1.23.0",
+    "dotenv": "^8.2.0",
     "puppeteer-core": "^5.5.0"
   }
 }
