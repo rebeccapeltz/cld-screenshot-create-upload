@@ -35,6 +35,7 @@ exports.handler = async (event, context) => {
   const screenshot = '';
 
   const [response] = await Promise.all([
+    page.waitForResponse(response => response.url().includes('.png')),
     page.goto(pageToScreenshot),
   ]);
   const buffer = await response.buffer();
