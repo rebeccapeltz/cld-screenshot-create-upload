@@ -1,21 +1,21 @@
 require('dotenv').config()
-const cloudinary = require('cloudinary').v2
+// const cloudinary = require('cloudinary').v2
 const chromium = require('chrome-aws-lambda');
 
-const uploadImage = async base64String => {
-  const publicId = `screenshots/${Date.now()}`;
-  try {
-    const response = await cloudinary.uploader.upload(base64String, {
-      public_id: publicId
-    });
-    console.log("cloudinary upload success",response.secure_url);
-    return response.secure_url;
+// const uploadImage = async base64String => {
+//   const publicId = `screenshots/${Date.now()}`;
+//   try {
+//     const response = await cloudinary.uploader.upload(base64String, {
+//       public_id: publicId
+//     });
+//     console.log("cloudinary upload success",response.secure_url);
+//     return response.secure_url;
 
-  } catch (error) {
-    console.log('cloudinary uploadImage error',JSON.stringify(error))
-    return "cloudinary error";
-  }
-};
+//   } catch (error) {
+//     console.log('cloudinary uploadImage error',JSON.stringify(error))
+//     return "cloudinary error";
+//   }
+// };
 
 
 exports.handler = async (event, context) => {
@@ -33,13 +33,13 @@ exports.handler = async (event, context) => {
 
     await page.goto(pageToScreenshot);
 
-    const screenshot = await page.screenshot({ encoding: 'base64' });
+    const screenshot = await page.screenshot({ encoding: 'binary' });
 
     await browser.close();
     
-    const cloudinaryImageUrl = await uploadImage(screenshot);
-    console.log("cld",
-    cloudinaryImageUrl);
+    // const cloudinaryImageUrl = await uploadImage(screenshot);
+    // console.log("cld",
+    // cloudinaryImageUrl);
 
     return {
         statusCode: 200,
