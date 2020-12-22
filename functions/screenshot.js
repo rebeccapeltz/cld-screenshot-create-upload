@@ -29,18 +29,20 @@ exports.handler = async (event, context) => {
 
   const page = await browser.newPage();
 
-  // await page.goto(pageToScreenshot);
+  await page.goto(pageToScreenshot);
 
   // const screenshot = await page.screenshot({ encoding: 'binary' });
   const screenshot = '';
 
-  const [response] = await Promise.all([
-    // page.waitForResponse(response => response.url().includes('.png')),
-    page.goto(pageToScreenshot),
-  ]);
-  const buffer = await response.buffer();
-  const b64image = "data:image/jpeg;base64," + buffer.toString("base64");
-  console.log("data:image/jpeg;base64," + buffer.toString("base64"));
+  const base64 = await page.screenshot({ encoding: "base64" })
+
+  // const [response] = await Promise.all([
+  //   // page.waitForResponse(response => response.url().includes('.png')),
+  //   page.goto(pageToScreenshot),
+  // ]);
+  // const buffer = await response.buffer();
+  const b64image = "data:image/jpeg;base64," + base64.toString("base64");
+  console.log(b64image);
 
   await browser.close();
 
