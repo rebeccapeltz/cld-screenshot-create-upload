@@ -32,7 +32,8 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
           if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
           const img = document.createElement('img');
-          img.src = bufferToImageUrl(res.buffer.data);
+          // img.src = bufferToImageUrl(res.buffer.data);
+          img.src = res.b64image;
           document.getElementById('result').innerHTML = img.outerHTML;
       })
       .catch((err) => {
