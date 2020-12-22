@@ -1,6 +1,6 @@
-require('dotenv').config()
+require("dotenv").config();
 // const cloudinary = require('cloudinary').v2
-const chromium = require('chrome-aws-lambda');
+const chromium = require("chrome-aws-lambda");
 
 // const uploadImage = async base64String => {
 //   const publicId = `screenshots/${Date.now()}`;
@@ -17,36 +17,43 @@ const chromium = require('chrome-aws-lambda');
 //   }
 // };
 
-
 exports.handler = async (event, context) => {
+  const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
 
-    const pageToScreenshot = JSON.parse(event.body).pageToScreenshot;
+  const browser = await chromium.puppeteer.launch({
+    executablePath: await chromium.executablePath,
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    headless: chromium.headless,
+  });
 
-    const browser = await chromium.puppeteer.launch({
-        executablePath: await chromium.executablePath,
-        args: chromium.args,
-        defaultViewport: chromium.defaultViewport,
-        headless: chromium.headless,
-    });
-    
-    const page = await browser.newPage();
+  const page = await browser.newPage();
 
-    await page.goto(pageToScreenshot);
+  // await page.goto(pageToScreenshot);
 
-    const screenshot = await page.screenshot({ encoding: 'binary' });
+  // const screenshot = await page.screenshot({ encoding: 'binary' });
 
-    await browser.close();
-    
-    // const cloudinaryImageUrl = await uploadImage(screenshot);
-    // console.log("cld",
-    // cloudinaryImageUrl);
+  const [response] = await Promise.all([
+    page.goto(pageToScreenshot),
+  ]);
+  const buffer = await response.buffer();
+  const b64image = "data:image/png;base64," + buffer.toString("base64");
+  console.log("data:image/png;base64," + buffer.toString("base64"));
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({ 
-            message: `Complete screenshot of ${pageToScreenshot}`, 
-            buffer: screenshot 
-        })
-    }
+  await browser.close();
 
-}
+  // const cloudinaryImageUrl = await uploadImage(screenshot);
+  // console.log("cld",
+  // cloudinaryImageUrl);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: `Complete screenshot of ${pageToScreenshot}`,
+      buffer: screenshot,
+      b64image: b64image
+
+    }),
+  };
+  
+};
