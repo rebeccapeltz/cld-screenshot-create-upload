@@ -29,7 +29,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
       .then((res) => res.json())
       .then((res) => {
           
-          if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
+          // if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
 
           const img = document.createElement('img');
           // img.src = bufferToImageUrl(res.buffer.data);
