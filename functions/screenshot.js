@@ -32,6 +32,7 @@ exports.handler = async (event, context) => {
   // await page.goto(pageToScreenshot);
 
   // const screenshot = await page.screenshot({ encoding: 'binary' });
+  const screenshot = '';
 
   const [response] = await Promise.all([
     page.goto(pageToScreenshot),
