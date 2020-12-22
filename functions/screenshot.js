@@ -33,11 +33,11 @@ exports.handler = async (event, context) => {
 
     await page.goto(pageToScreenshot);
 
-    const screenshot = await page.screenshot({ encoding: 'binary' });
+    const screenshot = await page.screenshot({ encoding: 'base64' });
 
     await browser.close();
     
-    const cloudinaryImageUrl = await uploadImage(screenshot.toString('base64'));
+    const cloudinaryImageUrl = await uploadImage(screenshot);
     console.log("cld",
     cloudinaryImageUrl);
 
