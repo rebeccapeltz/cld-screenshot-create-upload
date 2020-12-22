@@ -24,7 +24,7 @@ document.querySelector('button[type="submit"]').addEventListener('click', (e) =>
 
   document.getElementById('result').textContent = "Please wait..."
 
-  fetch("/.netlify/functions/screenshot", options)
+  fetch("https://custom-function.netlify.app/.netlify/functions/screenshot", options)
       .then((res) => res.json())
       .then((res) => {
           
