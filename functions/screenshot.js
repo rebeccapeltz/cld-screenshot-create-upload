@@ -35,12 +35,12 @@ exports.handler = async (event, context) => {
   const screenshot = '';
 
   const [response] = await Promise.all([
-    page.waitForResponse(response => response.url().includes('.png')),
+    // page.waitForResponse(response => response.url().includes('.png')),
     page.goto(pageToScreenshot),
   ]);
   const buffer = await response.buffer();
-  const b64image = "data:image/png;base64," + buffer.toString("base64");
-  console.log("data:image/png;base64," + buffer.toString("base64"));
+  const b64image = "data:image/jpeg;base64," + buffer.toString("base64");
+  console.log("data:image/jpeg;base64," + buffer.toString("base64"));
 
   await browser.close();
 
