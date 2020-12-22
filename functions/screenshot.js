@@ -6,7 +6,7 @@ const chromium = require("chrome-aws-lambda");
 const uploadImage = async base64String => {
   const publicId = `screenshots/${Date.now()}`;
   try {
-    const response = await cloudinary.uploader.upload(base64String, {
+    const response = await cloudinary.uploader.upload("https://images.pexels.com/photos/5656747/pexels-photo-5656747.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", {
       public_id: publicId
     });
     console.log("cloudinary upload success",response.secure_url);
