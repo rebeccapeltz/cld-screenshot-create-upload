@@ -34,8 +34,8 @@ main {
   .instruction, .container{
       width: 50vw;
   }
-  #result {
-    width: 80vw;
+  #result img{
+    width: 60vw;
   }
 }
 
