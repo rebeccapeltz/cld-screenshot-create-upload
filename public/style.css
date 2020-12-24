@@ -34,6 +34,9 @@ main {
   .instruction, .container{
       width: 50vw;
   }
+  #result {
+    width: 80vw;
+  }
 }
 
 #screenshot-form input[type="text"],
@@ -110,4 +113,7 @@ fieldset {
 }
 #warning {
   color:red;
+}
+#result {
+  border: 1px solid black;
 }
