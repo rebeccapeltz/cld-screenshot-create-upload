@@ -82,6 +82,7 @@ document
         const img = document.createElement("img");
         // img.src = res.b64image;
         img.src = response.secure_url;
+        img.alt = "screenshot";
         document.getElementById("result").innerHTML = img.outerHTML;
       })
       .catch((err) => {
