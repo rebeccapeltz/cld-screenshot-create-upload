@@ -21,7 +21,7 @@ exports.handler = async (event, context) => {
   // const screenshot = '';
 
   const base64 = await page.screenshot({ encoding: "base64" })
-  const b64image = "data:image/jpeg;base64," + base64.toString("base64");
+  const b64image = "data:image/png;base64," + base64.toString("base64");
   console.log(b64image);
 
   await browser.close();
