@@ -12,11 +12,11 @@
 async function uploadToCloudinary(b64image, cloudname, preset) {
   let url = `https://api.cloudinary.com/v1_1/${cloudname}/upload`;
   // use current epic time for public id
-  let options = {public_id: `${Date.now()}`}
+  let id = `${Date.now()}`;
   var fd = new FormData();
   fd.append("upload_preset", preset);
   fd.append("file", b64image);
-  fd.append("options",options);
+  fd.append("public_id",id);
 
   // prepare to post data as JSON
   const plainFormData = Object.fromEntries(fd.entries());
