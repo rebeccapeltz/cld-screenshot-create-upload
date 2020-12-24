@@ -81,7 +81,7 @@ document
         );
         const img = document.createElement("img");
         // img.src = res.b64image;
-        img.src = response.secureURL;
+        img.src = response.secure_url;
         document.getElementById("result").innerHTML = img.outerHTML;
       })
       .catch((err) => {
