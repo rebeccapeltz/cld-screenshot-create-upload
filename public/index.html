@@ -1,25 +1,55 @@
 <!doctype html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Netlify Puppeteer Demo</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<head>
+    <meta charset="utf-8">
+    <title>Screenshot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main>
-        <h1>Netlify Puppeteer Demo</h1>
-     
+        <h1>Cloudinary Screenshot Create and Upload</h1>
+        <div class="instruction">
+            <p>You need to create an unsigned preset in your Cloudinary settings. At a minimum the present
+                must be unsigned. This will serve as credentials to allow the upload API to upload to your cloud. You
+                may
+                also want to use the
+                preset to:
+            </p>
+            <ul>
+                <li>specify a folder for screenshot uploads</li>
+                <li>add a tag to screenshot assets</li>
+            </ul>
+            <p>
+                See <a href="https://cloudinary.com/documentation/upload_presets" target="_blank">Cloudinary
+                    Documentation</a> for more information on presets.
 
-        <form>
-            <input type="url" id="page" aria-label="URL" value="https://www.google.com">
-            <button type="submit">Screenshot!</button>
-        </form>
-
-        <div id="result" aria-live="polite"></div>
+            </p>
+        </div>
+        <div class="container">
+            <form id="screenshot-form">
+                <fieldset>
+                    <input type="url" id="url" aria-label="URL" placeholder="URL for page to make screenshot" value="https://www.google.com">
+                </fieldset>
+                <fieldset>
+                    <input type="text" id="cloudname" aria-label="CloudName" placeholder="Cloudinary Cloud Name"
+                        value="dec-2020-test">
+                </fieldset>
+                <fieldset>
+                    <input type="text" id="preset" aria-label="preset" placeholder="Unsigned preset" value="screenshot-preset">
+                </fieldset>
+                <fieldset>
+                    <button type="submit">Create and Upload Screenshot</button>
+                </fieldset>
+            </form>
+        </div>
+        <div id="warning"></div>
+        <div id="result"></div>
     </main>
-    
+
     <script src="script.js"></script>
 </body>
+
 </html>
