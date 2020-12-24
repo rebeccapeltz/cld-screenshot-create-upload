@@ -25,5 +25,5 @@ https://medium.com/@viviancpy/save-screenshot-of-websites-with-puppeteer-cloudin
 
 ## Cloudinary Preset
 
-The image below shows an unsigned preset.  Besides authorizing an unsigned upload, this preset will also place the uploaded asset in a folder named "screenshot", add a tag named "screenshot" and only allow `jpg` formatted files to be uploaded.
-![Cloudinary unsigned preset](./preset.jpb)
+The image below shows an unsigned preset.  Besides authorizing an unsigned upload, this preset will also place the uploaded asset in a folder named "screenshot", add a tag named "screenshot" and only allow file with a `png` format to be uploaded.
+![Cloudinary unsigned preset](./preset.jpg)
