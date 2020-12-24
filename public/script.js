@@ -67,9 +67,9 @@ async function main() {
 
             fetch("/.netlify/functions/screenshot", options)
                 .then((res) => res.json())
-                .then((res) => {
-                    // if (!res.buffer) return document.getElementById('result').textContent = 'Error capturing screenshot';
-                    // const response = await uploadToCloudinary(res.b64image, cloudname, preset);
+                .then(async (res) => {
+                    if (!res.b64image) return document.getElementById('warning').innerHTML = 'Error capturing screenshot';
+                    const response = await uploadToCloudinary(res.b64image, cloudname, preset);
                     const img = document.createElement("img");
                     img.src = res.b64image;
                     // img.src = response.secureURL;
