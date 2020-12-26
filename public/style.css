@@ -15,7 +15,7 @@
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
-  font-size: .75rem;
+  font-size: 0.75rem;
   line-height: 20px;
   color: #333;
 }
@@ -31,11 +31,18 @@ main {
 }
 
 @media screen and (min-width: 480px) {
-  .instruction, .container{
-      width: 50vw;
+  .instruction,
+  .container {
+    width: 50vw;
   }
-  #result img{
+  #result img {
     max-width: 600px;
+  }
+
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -62,7 +69,6 @@ h1 {
   margin: 1rem 0;
   font-size: 1.5em;
 }
-
 
 fieldset {
   border: medium none !important;
@@ -113,7 +119,7 @@ fieldset {
   padding: 0 3rem;
 }
 #warning {
-  color:red;
+  color: red;
 }
 #result img {
   border: 1px solid black;
@@ -122,8 +128,3 @@ fieldset {
   margin: 0 auto;
   width: 90%; */
 }
-
-body {
-  display: flex;
-  align-items: center;
-  justify-content: center }
