@@ -26,8 +26,8 @@ main {
 
 .container {
   padding: 1rem 0;
-  width: 100%;
-  position: relative;
+  width: 100vh;
+  /* position: relative; */
 }
 
 @media screen and (min-width: 480px) {
@@ -35,7 +35,7 @@ main {
       width: 50vw;
   }
   #result img{
-    width: 60vw;
+    max-width: 600px;
   }
 }
 
@@ -117,6 +117,7 @@ fieldset {
 }
 #result img {
   border: 1px solid black;
+  max-width: 300px;
   /* display: block;
   margin: 0 auto;
   width: 90%; */
