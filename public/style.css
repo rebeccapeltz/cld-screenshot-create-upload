@@ -20,20 +20,18 @@ body {
   color: #333;
 }
 
-main {
-  margin: 0 50px;
-}
+
 
 .container {
-  padding: 1rem 0;
-  width: 100vh;
+  /* padding: 1rem 0; */
+  max-width: 100vh;
   /* position: relative; */
 }
 
 @media screen and (min-width: 480px) {
   .instruction,
   .container {
-    width: 50vw;
+    max-width: 50vw;
   }
   #result img {
     max-width: 600px;
@@ -43,6 +41,9 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  main {
+    margin: 0 50px;
   }
 }
 
@@ -61,13 +62,14 @@ main {
 #screenshot-form {
   background: #f9f9f9;
   padding: 25px;
-  /* margin: 150px 0; */
+  /* margin: 1rem 0; */
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 h1 {
   margin: 1rem 0;
   font-size: 1.5em;
+  padding: 0 1rem;
 }
 
 fieldset {
@@ -114,6 +116,9 @@ fieldset {
 
 :-ms-input-placeholder {
   color: #aaa;
+}
+.instruction{
+  padding: 1rem;
 }
 .instruction ul {
   padding: 0 3rem;
