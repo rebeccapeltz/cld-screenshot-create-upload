@@ -117,6 +117,12 @@ fieldset {
 }
 #result img {
   border: 1px solid black;
+  display: block;
   margin: 0 auto;
   width: 90%;
 }
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center }
