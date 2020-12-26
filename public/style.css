@@ -15,8 +15,8 @@
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
-  font-size: 1rem;
-  line-height: 30px;
+  font-size: .75rem;
+  line-height: 20px;
   color: #333;
 }
 
@@ -60,6 +60,7 @@ main {
 
 h1 {
   margin: 1rem 0;
+  font-size: 1.5em;
 }
 
 
@@ -116,4 +117,5 @@ fieldset {
 }
 #result img {
   border: 1px solid black;
+  width: 90%;
 }

@@ -1,6 +1,3 @@
-// require("dotenv").config();
-// const cloudinary = require('cloudinary').v2;
-// cloudinary.config();
 const chromium = require("chrome-aws-lambda");
 
 exports.handler = async (event, context) => {
@@ -17,17 +14,12 @@ exports.handler = async (event, context) => {
 
   await page.goto(urlSS);
 
-  // const screenshot = await page.screenshot({ encoding: 'binary' });
-  // const screenshot = '';
-
   const base64 = await page.screenshot({ encoding: "base64" })
   const b64image = "data:image/png;base64," + base64.toString("base64");
-  console.log(b64image);
+  // console.log(b64image);
 
   await browser.close();
 
-  // const cloudinaryImageUrl = await uploadImage(b64image);
-  // console.log("cld",cloudinaryImageUrl);
 
   return {
     statusCode: 200,
